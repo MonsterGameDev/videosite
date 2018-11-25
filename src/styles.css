@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: #222222;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.body {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+.side-bar {
+    position: relative;
+    background-color: black;
+    width: 95px;
+    top: 0px;
+    bottom: 0px;
+    overflow: hidden;
+}
+
+.content {
+    background-color: red;
+    
+}

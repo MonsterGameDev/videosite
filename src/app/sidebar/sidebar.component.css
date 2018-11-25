@@ -1,0 +1,46 @@
+div.menu-item {
+    padding: 2em;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#expand {
+    position: relative;
+}
+
+div.menu-item {
+    color: rgb(112, 112, 112);
+}
+
+div.menu-item fa-icon {
+    cursor: pointer;
+    font-size: 2em;
+    margin-right: 1em;
+}
+
+div.menu-item span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:  500;
+    font-size: 2em;
+    opacity: 0;
+}
+
+#search:hover {
+    color: rgb(255, 36, 36);
+}
+
+#video:hover {
+    color: rgb(255, 217, 0);
+}
+
+#edit:hover {
+    color: rgb(123, 255, 0);
+}
+
+#user:hover {
+    color: rgb(255, 0, 200);
+}
+
+#signin:hover {
+    color: rgb(17, 0, 255);
+}
