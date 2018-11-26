@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/44d449b0-ef88-4218-ab84-61d64dac865c/resourceGroups/ngvideos/providers/Microsoft.Web/sites/ngvideos",
+    "appService.deploySubpath": "dist\\coursesite"
+}
