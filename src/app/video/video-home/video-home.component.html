@@ -1,3 +1,14 @@
-<p>
-  video-home works!
-</p>
+<div class="text-light">
+  <h1>Video List</h1>  
+  <div class="btn-group">
+    <div class="tab">
+      <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['player']}}]">Player</button>
+    </div>
+    <div class="tab">
+      <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['list']}}]">List</button>
+    </div>
+    <div class="tab">
+      <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['create']}}]">Create Form</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.err-container {
+    text-align: right;
+    color: darkred;
+}
+
+.field-top {
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}

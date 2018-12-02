@@ -1,0 +1,89 @@
+<div class="createvideo text-light">
+  <form novalidate [formGroup]="videoCourseForm">
+    <div class="form-group">
+      <div class="field-top">
+        <label for="title">Kursus Titel</label>
+        <div class="err-container" *ngIf="vcTitleErrMsg">{{ vcTitleErrMsg }}</div>
+      </div>
+      <input id="title" class="form-control" type="text" formControlName="vcTitle" placeholder="Kursus titel">
+    </div>
+    <div class="form-group">
+      <div class="field-top">
+        <label for="shortDescription">Kort Beskrivelse</label>
+        <div class="err-container" *ngIf="vcShortDescriptionErrMsg">{{ vcShortDescriptionErrMsg }}</div>
+      </div>
+      <textarea id="shortDescription" class="form-control" rows="3" formControlName="vcShortDescription"  placeholder="Kort beskrivelse af kurset"></textarea>
+    </div>
+    <div class="form-group">
+      <div class="field-top">
+        <label for="fullDescription">Fuld Beskrivelse</label>
+        <div class="err-container" *ngIf="vcFullDescriptionErrMsg">{{ vcFullDescriptionErrMsg }}</div>
+      </div>
+      <textarea id="fullDescription" class="form-control" rows="5" formControlName="vcFullDescription" placeholder="Beskrivelse af kurset"></textarea>
+    </div>
+    <div class="form-group">
+    <div class="field-top">
+        <label for="videoUrl">Video Streaming Url</label>
+        <div class="err-container" *ngIf="vcVideoUrlErrMsg">{{ vcVideoUrlErrMsg }}</div>
+    </div>
+    <input id="videoUrl" class="form-control" type="text" formControlName="vcVideoUrl" placeholder="Url til streaming-endpoint">
+    </div>
+    <div class="form-group">
+      <div class="field-top">      
+        <label for="posterUrl">Poster Url</label>
+        <div class="err-container" *ngIf="vcPosterUrlErrMsg">{{ vcPosterUrlErrMsg }}</div>
+      </div>
+      <input id="posterUrl" class="form-control" type="text" formControlName="vcPosterUrl" placeholder="Url til video-poster">
+    </div>
+    <div class="form-group">
+      <div class="field-top">
+          <label for="githubUrl">Url til GitHub repo</label>
+          <div class="err-container" *ngIf="vcGithubUrlErrMsg">{{ vcGithubUrlErrMsg }}</div>
+      </div>
+      <input id="githubUrl" class="form-control" type="text" formControlName="vcGithubUrl" placeholder="URL til kode på GitHub">
+    </div>
+    <div class="form-group">
+        <div class="field-top">
+            <label for="author">Underviser Navn</label>
+            <div class="err-container" *ngIf="vcAuthorErrMsg">{{ vcAuthorErrMsg }}</div>
+        </div>
+      <input id="author" class="form-control" type="text" formControlName="vcAuthor" placeholder="Angiv kursets forfatter">
+    </div>
+    <div class="form-group">
+      <div class="field-top">
+          <label for="level">Kursus Niveau</label>
+          <div class="err-container" *ngIf="vcLevelErrMsg">{{ vcLevelErrMsg }}</div>
+      </div>
+      <select id="level" class="form-control" formControlName="vcLevel" placeholder="Vælg kursus sværhedsgrad">
+        <option>Begynder</option>
+        <option>Øvet</option>
+        <option>Erfaren</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <div class="field-top">
+            <label for="videoLength">Kursus Varighed</label>
+            <div class="err-container" *ngIf="vcVideoLengthErrMsg">{{ vcVideoLengthErrMsg }}</div>
+        </div>
+      <input id="videoLength" class="form-control" formControlName="vcLength" type="text"  placeholder="Samlet længde i minutter">
+    </div>
+    <div class="form-group">
+        <div class="field-top">
+            <label for="datePublished">Last</label>
+            <div class="err-container" *ngIf="vcDatePublishedErrMsg">{{ vcDatePublishedErrMsg }}</div>
+        </div>
+      <input id="datePublished" class="form-control" type="text" formControlName="vcDatePublished"
+         placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+        <div class="field-top">
+            <label for="tags">Tags</label>
+            <div class="err-container" *ngIf="vcTagsErrMsg">{{ vcTagsErrMsg }}</div>
+        </div>
+      <input id="tags" class="form-control" type="text" formControlName="vcTags" placeholder="tag1, tag2, tag3 ...">
+    </div>
+    <div class="">
+      <button (click)="save()" class="btn btn-primary">GEM</button>
+    </div>
+  </form>
+</div>

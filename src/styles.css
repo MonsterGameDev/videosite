@@ -25,6 +25,6 @@ html, body {
 }
 
 .content {
-    background-color: red;
+    background-color:black;
     flex: 1;
 }

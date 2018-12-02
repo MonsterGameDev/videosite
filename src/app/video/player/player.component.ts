@@ -16,8 +16,8 @@ export class PlayerComponent implements OnInit {
       'nativeControlsForTouch': false,
       controls: true,
       autoplay: true,
-      width: '640',
-      height: '400',
+      width: 'auto',
+      height: '500',
       logo: { enabled: false },
       playbackSpeed: {
         enabled: true,

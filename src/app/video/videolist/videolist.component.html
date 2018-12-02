@@ -1,0 +1,7 @@
+<h2>List Component</h2>
+<div *ngIf="videoCourses$ | async as videoCourses">
+  hello
+  <div *ngFor="let vc of videoCourses">
+    <app-video-thumbnail [course]="vc"></app-video-thumbnail>
+  </div>
+</div>
