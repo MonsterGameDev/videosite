@@ -30,6 +30,15 @@ export class SidebarComponent implements OnInit {
     this.tween1 = TweenLite.to('#side-bar', 1, {width: 250, delay: .2, paused: true});
     this.tween2 = TweenLite.to('#expand', 1, { rotation: '180', delay: .5, paused: true});
     this.tween3 = TweenLite.to('.side-bar-label', .5, {opacity: 1, delay: 1, paused: true});
+
+    // mobile
+    if (window.matchMedia('(max-width: 400px)').matches) {
+      const elem =  document.querySelectorAll('.menu-container')[0];
+      elem[0].style.backgroundColor = 'red';
+    } else {
+
+    }
+
   }
 
   toggleExpanded() {
