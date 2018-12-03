@@ -19,12 +19,25 @@ html, body {
     position: relative;
     background-color: black;
     width: 95px;
+    min-width: 95px;
     top: 0px;
     bottom: 0px;
     overflow: hidden;
+    z-index:2;
 }
 
 .content {
     background-color:black;
     flex: 1;
+}
+
+.hamburger {
+    position: absolute;
+    top:  1em;
+    left: 1em;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+
 }
