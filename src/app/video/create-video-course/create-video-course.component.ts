@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Video } from '../models/video.interface';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { debounceTime, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromVideos from './../+state/video.reducer';
+import * as videoActions from './../+state/video.actions';
 
 
 @Component({
@@ -65,7 +69,7 @@ export class CreateVideoCourseComponent implements OnInit {
     minLength: 'Angiv mindst 3 tegn'
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private store: Store<fromVideos.AppState>, private router: Router) { }
 
   isDisabled: boolean;
 
@@ -81,7 +85,6 @@ export class CreateVideoCourseComponent implements OnInit {
       vcAuthor: ['', [Validators.required, Validators.minLength(3)]],
       vcLevel: ['', [Validators.required]],
       vcLength: [0, [Validators.required, Validators.min(1)]],
-      vcDatePublished: ['', [this.ValidateDate]],
       vcTags: ['', [Validators.minLength(3)]]
     });
 
@@ -94,7 +97,6 @@ export class CreateVideoCourseComponent implements OnInit {
     const vcAuthorControl = this.videoCourseForm.get('vcAuthor');
     const vcLevelControl = this.videoCourseForm.get('vcLevel');
     const vcLengthControl = this.videoCourseForm.get('vcLength');
-    const vcDatePublishedControl = this.videoCourseForm.get('vcDatePublished');
     const vcTagsControl = this.videoCourseForm.get('vcTags');
 
      vcTitleControl.valueChanges.subscribe(() => this.vcTitleValidityCheck(vcTitleControl));
@@ -106,9 +108,8 @@ export class CreateVideoCourseComponent implements OnInit {
      vcAuthorControl.valueChanges.subscribe(() => this.vcAuthorValidityCheck(vcAuthorControl));
      vcLevelControl.valueChanges.subscribe(() => this.vcLevelValidityCheck(vcLevelControl));
      vcLengthControl.valueChanges.subscribe(() => this.vcLengthValidityCheck(vcLengthControl));
-     vcDatePublishedControl.valueChanges.subscribe(() => this.vcDatePublishedValidityCheck(vcDatePublishedControl));
      vcTagsControl.valueChanges.subscribe(() => this.vcTagsValidityCheck(vcTagsControl));
-    
+
   }
 
 vcTitleValidityCheck(c: AbstractControl): void {
@@ -165,13 +166,13 @@ vcGithubUrlValidityCheck(c: AbstractControl): void {
       this.vcLengthErrMsg = Object.keys(c.errors).map(key => this.lengthErrorMessages[key]).toString();
     }
   }
-  vcDatePublishedValidityCheck(c: AbstractControl): void {
-    this.vcDatePublishedErrMsg = '';
-    if ((c.touched || c.dirty) && c.errors) {
-      this.vcDatePublishedErrMsg = Object.keys(c.errors).map(key => this.datePublishedErrorMessages[key]).toString();
-      console.log('error: ', c.errors);
-    }
-  }
+  // vcDatePublishedValidityCheck(c: AbstractControl): void {
+  //   this.vcDatePublishedErrMsg = '';
+  //   if ((c.touched || c.dirty) && c.errors) {
+  //     this.vcDatePublishedErrMsg = Object.keys(c.errors).map(key => this.datePublishedErrorMessages[key]).toString();
+  //     console.log('error: ', c.errors);
+  //   }
+  // }
   vcTagsValidityCheck(c: AbstractControl): void {
     this.vcTagsErrMsg = '';
     if ((c.touched || c.dirty) && c.errors) {
@@ -192,7 +193,26 @@ vcGithubUrlValidityCheck(c: AbstractControl): void {
 
 
   save() {
-    console.log('Save Clicked');
+    let newVideo: Video;
+    if (this.videoCourseForm.valid) {
+      newVideo = {
+        author: this.videoCourseForm.value.vcAuthor,
+        datePublished: new Date(),
+        duration: this.videoCourseForm.value.vcLength,
+        githubUrl: this.videoCourseForm.value.vcGithubUrl,
+        level: this.videoCourseForm.value.vcLevel,
+        longDescription: this.videoCourseForm.value.vcFullDescription,
+        posterUrl: this.videoCourseForm.value.vcPosterUrl,
+        shortDescription: this.videoCourseForm.value.vcShortDescription,
+        tags:  this.videoCourseForm.value.vcTags,
+        title: this.videoCourseForm.value.vcTitle,
+        videoUrl: this.videoCourseForm.value.vcVideoUrl
+      };
+
+      this.store.dispatch(new videoActions.CreateVideoCourse(newVideo));
+      this.router.navigate(['/videos', {outlets: {sub: ['list']}}]);
+    }
+
     return false;
   }
 

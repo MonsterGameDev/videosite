@@ -69,21 +69,13 @@
     </div>
     <div class="form-group">
         <div class="field-top">
-            <label for="datePublished">Last</label>
-            <div class="err-container" *ngIf="vcDatePublishedErrMsg">{{ vcDatePublishedErrMsg }}</div>
-        </div>
-      <input id="datePublished" class="form-control" type="text" formControlName="vcDatePublished"
-         placeholder="YYYY-MM-DD">
-    </div>
-    <div class="form-group">
-        <div class="field-top">
             <label for="tags">Tags</label>
             <div class="err-container" *ngIf="vcTagsErrMsg">{{ vcTagsErrMsg }}</div>
         </div>
       <input id="tags" class="form-control" type="text" formControlName="vcTags" placeholder="tag1, tag2, tag3 ...">
     </div>
     <div class="">
-      <button (click)="save()" class="btn btn-primary">GEM</button>
+      <button (click)="save()" type="submit" class="btn btn-primary">GEM</button>
     </div>
   </form>
 </div>
