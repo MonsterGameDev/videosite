@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   winWidth$: Observable<number>;
   sub: Subscription[];
   sidebarTween: any;
-  subject = new Subject();
+  menuExpanded = new Subject();
 
   faBars = faBars;
 
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.winWidth$ = of(window.innerWidth);
     this.sidebarTween = TweenLite.from('#side-bar', .4, {left: -95, delay: 2, paused: true});
 
-    this.subject.pipe(
-      tap(val => console.log(val)),
+    // start timer
+    this.menuExpanded.pipe(
        delay(6000)
        ).subscribe(() =>  {
          console.log('collapsing');
@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
 
+    // sidebar funktionalitet hvis viewport <= 460
     const widthListner: Subscription = this.winWidth$.subscribe(val => {
       if ( val <= 460 ) {
       this.expandSidebar();
@@ -50,14 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
   expandSidebar() {
     this.sidebarTween.play();
 
-    this.subject.next(true);
+    this.menuExpanded.next(true);
   }
 
   collapseSidebar()  {
     this.sidebarTween.reverse();
   }
-
-
 
 }
 

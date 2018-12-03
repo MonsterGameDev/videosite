@@ -16,9 +16,9 @@ export class SidebarComponent implements OnInit {
   faUser = faUser;
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
-  tween1: any;
-  tween2: any;
-  tween3: any;
+  // tween1: any;
+  // tween2: any;
+  // tween3: any;
 
   expanded: boolean;
 
@@ -28,35 +28,31 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.winWidth = window.innerWidth;
+    // this.expanded = false;
 
-
-
-    this.expanded = false;
-
-    this.tween1 = TweenLite.to('#side-bar', 1, {width: 250, delay: .2, paused: true});
-    this.tween2 = TweenLite.to('#expand', 1, { rotation: '180', delay: .5, paused: true});
-    this.tween3 = TweenLite.to('.side-bar-label', .5, {opacity: 1, delay: 1, paused: true});
+    // this.tween1 = TweenLite.to('#side-bar', 1, {width: 250, delay: .2, paused: true});
+    // this.tween2 = TweenLite.to('#expand', 1, { rotation: '180', delay: .5, paused: true});
+    // this.tween3 = TweenLite.to('.side-bar-label', .5, {opacity: 1, delay: 1, paused: true});
 
 
   }
 
-  gsapMiniWin() {
-    console.log('im here');
-  }
+  // gsapMiniWin() {
+  //   console.log('im here');
+  // }
 
-  toggleExpanded() {
-    this.expanded = !this.expanded;
-    if (this.expanded === true) {
-      this.tween1.restart(true);
-      this.tween2.restart(true);
-      this.tween3.restart(true);
-    } else {
-      this.tween1.reverse(true);
-      this.tween2.reverse(true);
-      this.tween3.reverse(true);
-    }
+  // toggleExpanded() {
+  //   this.expanded = !this.expanded;
+  //   if (this.expanded === true) {
+  //     this.tween1.restart(true);
+  //     this.tween2.restart(true);
+  //     this.tween3.restart(true);
+  //   } else {
+  //     this.tween1.reverse(true);
+  //     this.tween2.reverse(true);
+  //     this.tween3.reverse(true);
+  //   }
 
-  }
+  // }
 
 }
