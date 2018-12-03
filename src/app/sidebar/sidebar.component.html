@@ -1,23 +1,21 @@
 <div class="text-light mt-5 menu-container">  
   <div class="menu-item" id="search">
-
     <fa-icon title="Søg" [icon]="faSearch"></fa-icon>
-  
     <span class="side-bar-label">Search</span>
   </div>
-  <div class="menu-item" id="video" [routerLink]="['/videos']">
+  <div class="menu-item" id="video" [routerLink]="['/videos']" routerLinkActive="videoActive">
     <fa-icon alt="Se Video" [icon]="faVideo"></fa-icon>
     <span class="side-bar-label">Video</span>
   </div>
-  <div class="menu-item" id="edit">
+  <div class="menu-item" id="edit" [routerLink]="['/blog']" routerLinkActive="editActive" >
     <fa-icon [icon]="faEdit"></fa-icon>
     <span class="side-bar-label">Blogs</span>
   </div>
-  <div class="menu-item" id="user">
+  <div class="menu-item" id="user" [routerLink]="['/user/profile']" routerLinkActive="userActive">
     <fa-icon [icon]="faUser"></fa-icon>
     <span class="side-bar-label">Profile</span>
   </div>
-  <div class="menu-item" id="signin">
+  <div class="menu-item" id="signin" [routerLink]="['/user/login']" routerLinkActive="signinActive">
     <fa-icon [icon]="faSignInAlt"></fa-icon>
     <span class="side-bar-label">Sign In</span>
   </div>

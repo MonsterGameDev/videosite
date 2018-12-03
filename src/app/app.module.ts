@@ -8,11 +8,13 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRouterModule } from './router/router.module';
 import { environment } from 'src/environments/environment.prod';
+import { UserModule } from './user/user.module';
+import { ProfileComponent } from './user/profile/profile.component';
+import { LoginComponent } from './user/login/login.component';
 
 
 
@@ -20,13 +22,15 @@ import { environment } from 'src/environments/environment.prod';
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
     SidebarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    UserModule,
     AppRouterModule,
     HttpClientModule,
     StoreModule.forRoot({}),

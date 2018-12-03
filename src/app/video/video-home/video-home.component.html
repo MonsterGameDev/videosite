@@ -1,7 +1,20 @@
 <div class="text-light">
-  <h1>Video List</h1>  
-  <div class="btn-group">
-    <div class="tab">
+  
+  <div class="btn-group video-nav">
+    
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Play</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Alle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Opret</a>
+          </li>
+        </ul>
+    
+    <!-- <div class="tab">
       <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['player']}}]">Player</button>
     </div>
     <div class="tab">
@@ -9,6 +22,7 @@
     </div>
     <div class="tab">
       <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['create']}}]">Create Form</button>
-    </div>
+    </div> -->
   </div>
+  <h1>Video List</h1>  
 </div>
