@@ -1,4 +1,4 @@
-<p class="text-light">
+<!-- <p class="text-light">
   Name: {{ course.title  }}
   <br>
   shortDescription: {{ course.shortDescription  }}
@@ -21,4 +21,24 @@
   <br>
   tags: {{ course.tags  }}
 
-</p>
+</p> -->
+
+<div class="card" style="position:relative; height: 100%; background-color: #222; color: #ccc; border: 1px solid #ccc">
+    <div class="text-center btn-play">
+      <fa-icon [icon]="faPlayCircle"></fa-icon>
+    </div>
+    <img class="card-img-top" src="/assets/images/pic1.JPG" [alt]="course.title">
+    <div class="card-body">
+      <h5 class="card-title">{{ course.title  }}</h5>
+      <p class="card-text">{{ course.shortDescription  }}</p>
+      <p class="card-text">Varighed: {{ course.duration}} minutter</p>
+      <p class="card-text"><strong>{{ course.author  }}</strong></p>
+    </div>
+    <div class="card-footer linkbar">
+      <fa-icon [icon]="faFileDownload" title="Download Material"></fa-icon>
+      <div>
+        <img  widht="50" src="/assets/images/github.svg" title="Go to Github Repo" class="github">
+      </div>
+      <fa-icon [icon]="faInfoCircle" title="See Details"></fa-icon>
+    </div>
+  </div>

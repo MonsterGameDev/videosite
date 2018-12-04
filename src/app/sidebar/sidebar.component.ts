@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { faSearch, faVideo, faEdit, faSignInAlt, faSignOutAlt, faUser, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { TweenLite } from 'gsap/all';
+
 
 @Component({
   selector: 'app-sidebar',

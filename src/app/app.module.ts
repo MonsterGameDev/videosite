@@ -13,8 +13,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRouterModule } from './router/router.module';
 import { environment } from 'src/environments/environment.prod';
 import { UserModule } from './user/user.module';
-import { ProfileComponent } from './user/profile/profile.component';
-import { LoginComponent } from './user/login/login.component';
 
 
 
@@ -23,9 +21,7 @@ import { LoginComponent } from './user/login/login.component';
     AppComponent,
     HomeComponent,
     SidebarComponent,
-    NotFoundComponent,
-    ProfileComponent,
-    LoginComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

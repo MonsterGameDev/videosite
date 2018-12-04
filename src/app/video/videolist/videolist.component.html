@@ -1,7 +1,6 @@
 <h2>List Component</h2>
-<div *ngIf="videoCourses$ | async as videoCourses">
-  hello
-  <div *ngFor="let vc of videoCourses">
+<div *ngIf="videoCourses$ | async as videoCourses" class="row">
+  <div *ngFor="let vc of videoCourses" class="col-xs-12 col-md-6 col-lg-4 mb-4">
     <app-video-thumbnail [course]="vc"></app-video-thumbnail>
   </div>
 </div>

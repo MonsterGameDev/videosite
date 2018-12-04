@@ -12,6 +12,7 @@ import { VideoCourseEffectsService } from './+state/video.effects';
 import { VideoService } from './common/video.service';
 import { CreateVideoCourseComponent } from './create-video-course/create-video-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ]),
     StoreModule.forFeature('videoCourses', videoReducer),
     EffectsModule.forFeature([VideoCourseEffectsService]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [VideoService]
 })
