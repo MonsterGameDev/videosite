@@ -39,7 +39,8 @@ export class PlayerComponent implements OnInit {
     myPlayer.src([
             {
                     // tslint:disable-next-line:max-line-length
-                    'src': 'https://phng-euwe.streaming.media.azure.net/13dfebdc-4a1e-4524-89c6-daeeab512240/20180428_130619.ism/manifest(format=mpd-time-csf)',
+                    // 'src': 'https://phng-euwe.streaming.media.azure.net/13dfebdc-4a1e-4524-89c6-daeeab512240/20180428_130619.ism/manifest(format=mpd-time-csf)',
+                    'src': 'http://phng-euwe.streaming.media.azure.net/446624fe-b471-410c-bcdb-028b7f9e5996/20180823_121026.ism/manifest',
                     'type': 'application/vnd.ms-sstr+xml'
             }
     ]);
