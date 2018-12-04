@@ -1,3 +1,33 @@
 .video-nav {
-    margin: 2.2em 0 0 95px;
+    margin-top: 2.2em;
+    width: 100%;
+
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    background-color: black;
+    border-color: transparent;
+    border-bottom-color: rgb(255, 217, 0);
+    
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: black;
+    border-color: rgb(255, 217, 0);
+    border-bottom-color: black;
+    color: rgb(255, 217, 0);
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: .50rem;
+    border-top-right-radius: .50rem;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: rgb(255, 217, 0);
+  
+}
+
+a {
+    color: rgb(112, 112, 112)
 }

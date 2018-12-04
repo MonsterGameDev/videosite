@@ -2,15 +2,15 @@
   
   <div class="btn-group video-nav">
     
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs nav-tabs-justified nav-fill nav-" style="width: 100%">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Play</a>
+            <a class="nav-link" [routerLink]="[{outlets: {sub: ['player']}}]" routerLinkActive="active" >Play</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Alle</a>
+            <a class="nav-link" [routerLink]="[{outlets: {sub: ['list']}}]" routerLinkActive="active" >Alle</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Opret</a>
+            <a class="nav-link" [routerLink]="[{outlets: {sub: ['create']}}]" routerLinkActive="active" >Opret</a>
           </li>
         </ul>
     
@@ -24,5 +24,4 @@
       <button class="btn btn-outline-light" [routerLink]="[{outlets: {sub: ['create']}}]">Create Form</button>
     </div> -->
   </div>
-  <h1>Video List</h1>  
 </div>
