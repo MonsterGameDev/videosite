@@ -75,6 +75,6 @@ html, body {
 }
 
 /* Altererede Bootstrap klasser*/
-text-light {
-    color: rgb(112,112, 112);
+.ng-light {
+    color: rgb(152,152, 152);
 }
