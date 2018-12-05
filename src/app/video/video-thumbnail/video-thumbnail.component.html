@@ -24,21 +24,27 @@
 </p> -->
 
 <div class="card" style="position:relative; height: 100%; background-color: #222; color: #ccc; border: 1px solid #ccc">
-    <div class="text-center btn-play">
+    <div class="text-center btn-play"  (click)="playVideo(course?.id)">
       <fa-icon [icon]="faPlayCircle"></fa-icon>
     </div>
-    <img class="card-img-top" src="/assets/images/pic1.JPG" [alt]="course.title">
+    <img class="card-img-top" [src]="course?.posterUrl" [alt]="course.title">
     <div class="card-body">
-      <h5 class="card-title">{{ course.title  }}</h5>
-      <p class="card-text">{{ course.shortDescription  }}</p>
-      <p class="card-text">Varighed: {{ course.duration}} minutter</p>
+      <h5 class="card-title">{{ course?.title  }}</h5>
+      <p class="card-text">{{ course?.shortDescription  }}</p>
+      <p class="card-text">Varighed: {{ course?.duration}} minutter</p>
       <p class="card-text"><strong>{{ course.author  }}</strong></p>
     </div>
     <div class="card-footer linkbar">
-      <fa-icon [icon]="faFileDownload" title="Download Material"></fa-icon>
+      <a href="/assets/1.pdf">
+        <fa-icon [icon]="faFileDownload" title="Download Material"></fa-icon>
+      </a>
       <div>
-        <img  widht="50" src="/assets/images/github.svg" title="Go to Github Repo" class="github">
+        <a [href]="course.githubUrl">
+          <img  widht="50" src="/assets/images/github.svg" title="Go to Github Repo" class="github">
+        </a>
       </div>
-      <fa-icon [icon]="faInfoCircle" title="See Details"></fa-icon>
+      <a [routerLink]="['/courses/', course?.id]">
+        <fa-icon [icon]="faInfoCircle" title="See Details"></fa-icon>
+      </a>
     </div>
   </div>

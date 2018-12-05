@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Video } from '../models/video.interface';
+import { Observable } from 'rxjs';
+import * as fromVideoCourses from './../+state/video.reducer';
+import * as videoCourseActions from './../+state/video.actions';
+import { Store, select } from '@ngrx/store';
+import { first } from 'rxjs/operators';
+
 
 declare let amp: any;
 
@@ -7,17 +14,21 @@ declare let amp: any;
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
-export class PlayerComponent implements OnInit {
-  constructor() { }
+export class PlayerComponent implements OnInit, OnDestroy {
+  currentVideoCourse: Video;
+  myPlayer: any;
+
+
+  constructor(private store: Store<fromVideoCourses.AppState>) { }
 
   ngOnInit() {
-
-    const myOptions = {
+    const defaultVideoUrl = 'https://phng-euwe.streaming.media.azure.net/8ff29594-b3f8-4d32-ae00-1912f90ae6a1/20171001_155244.ism/manifest';
+    const playerOptions = {
       'nativeControlsForTouch': false,
       controls: true,
-      autoplay: true,
-      width: 'auto',
-      height: '500',
+      autoplay: false,
+      width: '100%',
+      height: 'auto',
       logo: { enabled: false },
       playbackSpeed: {
         enabled: true,
@@ -33,17 +44,38 @@ export class PlayerComponent implements OnInit {
             { name: 'x0.75', value: 0.75 },
             { name: 'x0.5', value: 0.5 },
         ]
+      }
+    };
+
+    this.store.pipe(select(fromVideoCourses.getCurrentVideoCourse), first()).subscribe(
+      (data: Video) => {
+         // console.log('selector sending:', data);
+        if (data) {
+          this.readyPlayer(data.videoUrl, playerOptions);
+          this.currentVideoCourse = data;
+        } else {
+          this.readyPlayer(defaultVideoUrl, playerOptions);
+        }
+      }
+    );
+
+  } // End OnInit
+
+  ngOnDestroy() {
+    // autistic precaution
+    if (!!this.myPlayer) {
+      this.myPlayer.dispose();
     }
-      };
-    const myPlayer = amp('azuremediaplayer', myOptions);
-    myPlayer.src([
-            {
-                    // tslint:disable-next-line:max-line-length
-                    // 'src': 'https://phng-euwe.streaming.media.azure.net/13dfebdc-4a1e-4524-89c6-daeeab512240/20180428_130619.ism/manifest(format=mpd-time-csf)',
-                    'src': 'http://phng-euwe.streaming.media.azure.net/446624fe-b471-410c-bcdb-028b7f9e5996/20180823_121026.ism/manifest',
-                    'type': 'application/vnd.ms-sstr+xml'
-            }
-    ]);
   }
 
+  private readyPlayer(url: string, options: Object) {
+    url = url.replace('http://', 'https://');
+    this.myPlayer = amp('azuremediaplayer', options);
+    this.myPlayer.src([
+      {
+        'src': url,
+        'type': 'application/vnd.ms-sstr+xml'
+      }
+    ]);
+  }
 }

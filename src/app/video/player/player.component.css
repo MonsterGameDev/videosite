@@ -1,0 +1,10 @@
+.content {
+    margin-top: 3em;
+    color: rgb(112,112,112);
+}
+
+.mainInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}

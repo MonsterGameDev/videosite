@@ -43,7 +43,8 @@ export class CreateVideoCourseComponent implements OnInit {
     minlength: 'Angiv mindst 256 tegn'
   };
   private videoUrlErrorMessages = {
-    pattern: 'Ikke korrekt URL'
+    // pattern: 'Ikke korrekt URL'
+    required: 'Skal udfyldes'
   };
   private posterUrlErrorMessages = {
     pattern: 'Ikke korrekt URL'
@@ -74,14 +75,15 @@ export class CreateVideoCourseComponent implements OnInit {
   isDisabled: boolean;
 
   ngOnInit() {
+// Validators.pattern('^((https?|http?):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$')]
 
     this.videoCourseForm = this.fb.group({
       vcTitle: ['', [Validators.required, Validators.minLength(3)]],
       vcShortDescription: ['', [Validators.required, Validators.minLength(128), Validators.maxLength(256)]],
       vcFullDescription: ['', [Validators.minLength(256)]],
-      vcVideoUrl: ['', [Validators.pattern('^((https?|http?):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$')]],
-      vcPosterUrl: ['', [Validators.pattern('^((https?|http?):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$')]],
-      vcGithubUrl: ['', [Validators.pattern('^((https?|http?):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$')]],
+      vcVideoUrl: ['', [Validators.required]],
+      vcPosterUrl: ['', []],
+      vcGithubUrl: ['', []],
       vcAuthor: ['', [Validators.required, Validators.minLength(3)]],
       vcLevel: ['', [Validators.required]],
       vcLength: [0, [Validators.required, Validators.min(1)]],

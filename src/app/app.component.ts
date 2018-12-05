@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, of, Subscription, Subject } from 'rxjs';
+import { Observable, of, Subscription, Subject, fromEvent } from 'rxjs';
 import { TweenLite } from 'gsap/all';
 import { delay, tap } from 'rxjs/operators';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -25,12 +25,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // start timer
     this.menuExpanded.pipe(
-       delay(6000)
+       delay(3000)
        ).subscribe(() =>  {
          console.log('collapsing');
       this.collapseSidebar();
     });
 
+    fromEvent(window, 'resize').subscribe((val: any ) => {
+      if (val.currentTarget.innerWidth <= 500) {
+        this.collapseSidebar();
+      }
+    });
 
     // sidebar funktionalitet hvis viewport <= 460
     const widthListner: Subscription = this.winWidth$.subscribe(val => {

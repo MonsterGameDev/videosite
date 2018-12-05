@@ -5,7 +5,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface VideoCoursesState {
     videos: Video[];
-    selectedVideo: Video;
+    currentVideoCourseId: number | null;
     error: string;
 }
 
@@ -15,7 +15,7 @@ export interface AppState extends fromRoot.AppState {
 
 const initialState = {
     videos: [],
-    selectedVideo: null,
+    selectedVideoId: null,
     error: ''
 };
 
@@ -26,9 +26,38 @@ export const getVideoCourses = createSelector(
     state => state.videos
 );
 
-export const getSelectedVideoCourse = createSelector(
+export const getCurrentVideoCourseId = createSelector(
     getVideoCoursesFeatureState,
-    state => state.selectedVideo
+    state => {
+        console.log('state.currentVideoCourseId', state.currentVideoCourseId);
+        return state.currentVideoCourseId;
+    }
+);
+
+export const getCurrentVideoCourse = createSelector(
+    getVideoCoursesFeatureState,
+    getCurrentVideoCourseId,
+    (state, currentVideoCourseId): Video => {
+        console.log('currentVideoCourseId', currentVideoCourseId);
+        if (currentVideoCourseId === 0) {
+            return {
+                id: 0,
+                author: '',
+                datePublished: null,
+                duration: 0,
+                githubUrl: '',
+                level: '',
+                longDescription: '',
+                posterUrl: '',
+                shortDescription: '',
+                tags: '',
+                title: 'New',
+                videoUrl: ''
+            };
+        } else {
+            return currentVideoCourseId ? state.videos.find (vc => vc.id === currentVideoCourseId) : null;
+        }
+    }
 );
 
 export const getVideoCoursesError = createSelector(
@@ -61,6 +90,21 @@ export function videoReducer (state = initialState, action: videoActions.VideoAc
             return {
                 ...state,
                 error: action.payload
+            };
+        case videoActions.VideoActionTypes.SetCurrentVideoCourse:
+            return {
+                ...state,
+                currentVideoCourseId: action.payload
+            };
+        case videoActions.VideoActionTypes.ClearCurrentVideoCourse:
+            return {
+                ...state,
+                currentVideoCourseId: null
+            };
+        case videoActions.VideoActionTypes.InitializeCurrentVideoCourse:
+            return  {
+                ...state,
+                currentVideoCourseId: 0
             };
         default:
             return state;

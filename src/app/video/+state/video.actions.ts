@@ -8,6 +8,9 @@ export enum VideoActionTypes {
     CreateVideoCourse = '[Video Courses] Create Course',
     CreateVideoCourseSuccess = '[Video Courses] Create Course Success',
     CreateCourseFail = '[Video Courses] Create Course Failed',
+    SetCurrentVideoCourse = '[Video Courses] Set Current VideoCourse',
+    ClearCurrentVideoCourse = '[Video Courses] Clear Current VideoCourse',
+    InitializeCurrentVideoCourse = '[Video Courses] Initialize Current VideoCourse'
 }
 
 export class LoadVideoCourses implements Action {
@@ -44,9 +47,27 @@ export class CreateVideoCourseFail implements Action {
     constructor(public payload: string) {}
 }
 
+export class SetCurrentVideoCourse implements Action {
+    readonly type = VideoActionTypes.SetCurrentVideoCourse;
+
+    constructor(public payload: number) {}
+}
+
+export class ClearCurrentVideoCourse implements Action {
+    readonly type = VideoActionTypes.ClearCurrentVideoCourse;
+
+}
+
+export class InitializeCurrentVideoCourse implements Action {
+    readonly type = VideoActionTypes.InitializeCurrentVideoCourse;
+}
+
 export type VideoActions = LoadVideoCourses
     | LoadVideoCoursesSuccess
     | LoadVideoCoursesFail
     | CreateVideoCourse
     | CreateVideoCourseSuccess
-    | CreateVideoCourseFail;
+    | CreateVideoCourseFail
+    | SetCurrentVideoCourse
+    | ClearCurrentVideoCourse
+    | InitializeCurrentVideoCourse;

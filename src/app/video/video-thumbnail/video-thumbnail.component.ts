@@ -1,6 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Video } from '../models/video.interface';
 import { faPlayCircle, faFileArchive, faArrowAltCircleDown, faFileDownload, faInfoCircle  } from '@fortawesome/free-solid-svg-icons';
+import * as fromVideoCourses from './../+state/video.reducer';
+import * as videoCourseActions from './../+state/video.actions';
+import { Store, select } from '@ngrx/store';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-video-thumbnail',
@@ -9,14 +14,22 @@ import { faPlayCircle, faFileArchive, faArrowAltCircleDown, faFileDownload, faIn
 })
 export class VideoThumbnailComponent implements OnInit {
   @Input() course: Video;
+
   faPlayCircle = faPlayCircle;
   faFileDownload = faFileDownload;
   faInfoCircle = faInfoCircle;
 
-  constructor() { }
+
+
+  constructor(private store: Store<fromVideoCourses.AppState>, private router: Router) { }
 
   ngOnInit() {
-    console.log('Course: ', this.course);
+  }
+
+  playVideo(id: number) {
+    console.log('moving to play');
+    this.store.dispatch(new videoCourseActions.SetCurrentVideoCourse(id));
+    this.router.navigate(['/videos', {outlets: {sub: ['player']}}]);
   }
 
 }

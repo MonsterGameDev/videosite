@@ -14,6 +14,8 @@ import { CreateVideoCourseComponent } from './create-video-course/create-video-c
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
+
 @NgModule({
   declarations: [
     PlayerComponent,
