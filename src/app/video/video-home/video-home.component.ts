@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import * as fromVideo from './../+state/video.reducer';
+import { Store, select } from '@ngrx/store';
+import { getAuth } from 'src/app/user/+state/user.reducer';
 
 @Component({
   selector: 'app-video-home',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-home.component.css']
 })
 export class VideoHomeComponent implements OnInit {
+  isLoggedIn$: Observable<boolean>;
 
-  constructor() { }
+  constructor(private store: Store<fromVideo.AppState>) { }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.store.pipe(select(getAuth));
   }
 
 }

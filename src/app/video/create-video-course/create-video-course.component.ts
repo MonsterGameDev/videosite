@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Video } from '../models/video.interface';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
-import { debounceTime, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as fromVideos from './../+state/video.reducer';

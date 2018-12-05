@@ -9,7 +9,7 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="[{outlets: {sub: ['list']}}]" routerLinkActive="active" >Alle</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf='isLoggedIn$ | async'>
             <a class="nav-link" [routerLink]="[{outlets: {sub: ['create']}}]" routerLinkActive="active" >Opret</a>
           </li>
         </ul>

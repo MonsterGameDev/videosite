@@ -73,3 +73,8 @@ html, body {
     color: rgb(112, 112, 112);
 
 }
+
+/* Altererede Bootstrap klasser*/
+text-light {
+    color: rgb(112,112, 112);
+}

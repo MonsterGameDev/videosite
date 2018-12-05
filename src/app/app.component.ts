@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // start timer
     this.menuExpanded.pipe(
-       delay(3000)
+       delay(4000)
        ).subscribe(() =>  {
          console.log('collapsing');
       this.collapseSidebar();

@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRouterModule } from './router/router.module';
 import { environment } from 'src/environments/environment.prod';
 import { UserModule } from './user/user.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,7 +36,8 @@ import { UserModule } from './user/user.module';
       name: 'CourseSite Dev Tools',
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
