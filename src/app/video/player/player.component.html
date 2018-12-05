@@ -1,19 +1,20 @@
-<div style="width:100%; height: 100%;">
-<video style="width: 100%;" 
-    id="azuremediaplayer" 
-    class="azuremediaplayer amp-default-skin amp-big-play-centered" 
-    tabindex="0">
-</video>
-<br>
-<div class="content" *ngIf="currentVideoCourse">
-    <h1>{{ currentVideoCourse.title }}</h1>
-    <hr>
-    <div class="mainInfo">
-        <span>Af: {{ currentVideoCourse?.author }}</span>
-        <span>Udgivet: {{ currentVideoCourse?.datePublished | date }}</span>
-        <span>Varighed: {{ currentVideoCourse?.duration }}</span>
-    </div>
-    <hr>
-    <div>{{ currentVideoCourse?.shortDescription }}</div>
+<div class="playerPage">
+    <video style="width: 100%;" 
+        id="azuremediaplayer" 
+        class="azuremediaplayer amp-default-skin amp-big-play-centered" 
+        tabindex="0">
+    </video>
+    <br>
+    <div class="videoDetails" *ngIf="currentVideoCourse">
+        <h1>{{ currentVideoCourse.title }}</h1>
+        <hr>
+        <div class="mainInfo">
+            <span>Af: {{ currentVideoCourse?.author }}</span>
+            <span>Udgivet: {{ currentVideoCourse?.datePublished | date }}</span>
+            <span>Varighed: {{ currentVideoCourse?.duration }}</span>
+        </div>
+        <hr>
+        <div>{{ currentVideoCourse?.shortDescription }}</div>
     </div>
 </div>
+
