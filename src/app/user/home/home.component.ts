@@ -6,10 +6,11 @@ import { faShare, faShareAlt, faShareAltSquare } from '@fortawesome/free-solid-s
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UserHomeComponent implements OnInit {
   faShare = faShare;
   faShareAlt = faShareAlt;
   faShareAltSquare = faShareAltSquare;
+
   constructor() { }
 
   ngOnInit() {

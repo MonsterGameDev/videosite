@@ -32,7 +32,6 @@ import { VideoHomeTextComponent } from './video-home-text/video-home-text.compon
       { path: 'player', component: PlayerComponent, outlet: 'sub' },
       { path: 'list', component: VideolistComponent, outlet: 'sub' },
       { path: 'create', component: CreateVideoCourseComponent, outlet: 'sub' },
-      { path: 'create', component: CreateVideoCourseComponent, outlet: 'sub' },
       { path: 'wctext', component: VideoHomeTextComponent, outlet: 'sub' },
       { path: '', component: VideoHomeComponent },
     ]),

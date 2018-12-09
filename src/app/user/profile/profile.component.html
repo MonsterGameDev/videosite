@@ -1,9 +1,10 @@
-<div class="streg"></div>
-<div class="home text-center">
-    <h1>
-    Profil
-    </h1>
-    <h3 *ngIf="loggedIn$ | async">Velkommen Admin</h3>
-    <h3 *ngIf="!loggedIn$ | async">Desværre, du har ikke rettigheder til denne side</h3>
+  <div class="page">  
+    <div class="page-content">
+      
+      <div class="page-body">
+        <h2>Velkommen til Profil-modulet</h2>
+        <h3 *ngIf="loggedIn$ | async">Velkommen Admin</h3>
+        <h3 *ngIf="!loggedIn$ | async">Desværre, du har ikke rettigheder til denne side</h3>
+      </div>
+    </div>
   </div>
-  

@@ -1,12 +1,13 @@
-<div class="hamburger" (click)="expandSidebar()"><fa-icon [icon]="faBars"></fa-icon></div>
+<div class="hamburger" id="hamburger"><fa-icon [icon]="faBars"></fa-icon></div>
 <div class="body">
   <div class="side-bar" id="side-bar">
     <app-sidebar></app-sidebar>
   </div>
+  
   <div class="content">
-    <div class="container outlet-container">
-      <router-outlet></router-outlet> 
-      <router-outlet name="sub"></router-outlet>
+      <div class="outlet-container">
+        <router-outlet></router-outlet> 
+        <router-outlet name="sub"></router-outlet>
+      </div>
     </div>
-  </div>
 </div>

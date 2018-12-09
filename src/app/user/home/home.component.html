@@ -1,0 +1,19 @@
+<div class="share">
+  <h1>Profile</h1>
+<fa-icon [icon]="faShareAltSquare"></fa-icon>
+</div>
+
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['login']}}]" routerLinkActive="active">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['profile']}}]" routerLinkActive="active">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['edit-profile']}}]" routerLinkActive="active">Edit Profile</a>
+  </li>
+</ul>
+
+
+

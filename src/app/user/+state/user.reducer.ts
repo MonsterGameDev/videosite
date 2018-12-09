@@ -17,7 +17,7 @@ const initialState = {
 
 
 
-export function userReducer(state= initialState, action: userActions.UserActions) {
+export function userReducer(state = initialState, action: userActions.UserActions) {
     switch (action.type) {
         case userActions.ActionTypes.LogIn:
             return {
@@ -33,7 +33,13 @@ const getUserState = createFeatureSelector<UserState>('user');
 
 export const getAuth = createSelector(
     getUserState,
-    state => state.auth
+    state => {
+        if (state) {
+            return state.auth;
+        } else {
+            return false;
+        }
+    }
 );
 
 const getUser = createSelector (

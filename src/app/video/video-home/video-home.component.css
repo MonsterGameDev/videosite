@@ -1,4 +1,37 @@
-.video-nav {
+/*Menu stuff */
+
+a, a:not([href]):not([tabindex]) {
+    color: rgb(112, 112, 112);
+}
+
+.nav-tabs  {
+    background-color: black;
+    border-color: transparent;
+    border-bottom-color: rgb(255, 217, 0);
+    
+}
+
+.nav-link.active {
+    background-color: black;
+    border-color: rgb(255, 217, 0);;
+    border-bottom-color: black !important;
+    color: rgb(255, 217, 0) !important;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: .50rem;
+    border-top-right-radius: .50rem;
+}
+
+.nav-link:hover {
+    border-color: rgb(255, 217, 0);;
+  
+}
+
+
+
+
+/* .video-nav {
     margin: 2.2em 0 0 6em;
 }
 
@@ -36,4 +69,4 @@
 
 a {
     color: rgb(112, 112, 112)
-}
+} */

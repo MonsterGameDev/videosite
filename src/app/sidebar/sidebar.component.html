@@ -3,7 +3,7 @@
     <fa-icon title="Søg" [icon]="faSearch"></fa-icon>
     <span class="side-bar-label">Search</span>
   </div>
-  <div class="menu-item" id="video" [routerLink]="['/videos']" routerLinkActive="videoActive">
+  <div class="menu-item" id="video" [routerLink]="['/videos', {outlets: { sub: ['wctext'] } }]" routerLinkActive="videoActive">
     <fa-icon alt="Se Video" [icon]="faVideo"></fa-icon>
     <span class="side-bar-label">Video</span>
   </div>
@@ -11,11 +11,11 @@
     <fa-icon [icon]="faEdit"></fa-icon>
     <span class="side-bar-label">Blogs</span>
   </div>
-  <div class="menu-item" id="user" [routerLink]="['/user/profile']" routerLinkActive="userActive">
+  <div class="menu-item" id="user" [routerLink]="['/user', { outlets: { sub: ['profile'] } }]" routerLinkActive="userActive">
     <fa-icon [icon]="faUser"></fa-icon>
     <span class="side-bar-label">Profile</span>
   </div>
-  <div class="menu-item" id="signin" [routerLink]="['/user/login']" routerLinkActive="signinActive">
+  <div class="menu-item" id="signin" [routerLink]="['/user', { outlets: { sub: ['login'] } }]" routerLinkActive="signinActive">
     <fa-icon [icon]="faSignInAlt"></fa-icon>
     <span class="side-bar-label">Sign In</span>
   </div>

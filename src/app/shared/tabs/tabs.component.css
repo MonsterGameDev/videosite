@@ -1,9 +1,4 @@
 /*Menu stuff */
-
-a, a:not([href]):not([tabindex]) {
-    color: rgb(112, 112, 112);
-}
-
 .nav-tabs  {
     background-color: black;
     border-color: transparent;
@@ -15,7 +10,7 @@ a, a:not([href]):not([tabindex]) {
     background-color: black;
     border-color: rgb(123, 255, 0);
     border-bottom-color: black !important;
-    color: rgb(123, 255, 0) !important;
+    color: rgb(123, 255, 0);
 }
 
 .nav-tabs .nav-link {
@@ -28,7 +23,6 @@ a, a:not([href]):not([tabindex]) {
   
 }
 
-
-
-
-
+a {
+    color: rgb(112, 112, 112)
+}

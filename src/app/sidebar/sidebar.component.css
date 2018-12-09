@@ -9,6 +9,17 @@
     color: rgb(112, 112, 112);
 }
 
+@media (max-height: 500px) {
+    .side-bar-label {
+        display: none;
+    }
+
+    .mt-5, .my-5 {
+        margin-top: 1.5rem!important;
+    }
+}
+
+
 @media (min-height: 900px) {
     .menu-container {
         height: 60%;
@@ -44,11 +55,11 @@
     color: rgb(123, 255, 0);
 }
 
-#user:hover, .userActive {
+#user:hover, .userActive, #signin:hover, .signinActive {
     color: rgb(255, 0, 200);
 }
-
+/* 
 #signin:hover, .signinActive {
     color: rgb(17, 0, 255);
-}
+} */
 

@@ -1,4 +1,29 @@
-<div class="ng-light">
+<div class="share">
+  <h1>Videos</h1>
+<fa-icon [icon]="faShareAltSquare"></fa-icon>
+</div>
+
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['player']}}]" routerLinkActive="active">Introduktion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['list']}}]" routerLinkActive="active">Vis Alle</a>
+  </li>
+  <li class="nav-item" *ngIf='isLoggedIn$ | async'>
+    <a class="nav-link" [routerLink]="[{outlets: {sub: ['create']}}]" routerLinkActive="active">Opret</a>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+<!-- <div class="ng-light">
   
   <div class="btn-group video-nav">
     
@@ -15,4 +40,4 @@
         </ul>
         
   </div>
-</div>
+</div> -->
