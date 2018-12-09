@@ -3,7 +3,12 @@
       
       <div class="page-body">
         <h2>Velkommen til Profil-modulet</h2>
-        <h3 *ngIf="loggedIn$ | async">Velkommen Admin</h3>
+
+        <div *ngIf="loggedIn$ | async">
+          <h3>Velkommen Admin</h3>
+          <p>Siden er desværre ikke klar endnu... men du er logget ind - dét er da noget...</p>
+        </div>
+        
         <h3 *ngIf="!loggedIn$ | async">Desværre, du har ikke rettigheder til denne side</h3>
       </div>
     </div>

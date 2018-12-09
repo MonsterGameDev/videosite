@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as userActions from './../+state/user.actions';
+import { getAuth } from '../+state/user.reducer';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,7 @@ import * as userActions from './../+state/user.actions';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLoggedIn$: Observable<boolean>;
   loginForm: FormGroup;
   username: AbstractControl;
   password: AbstractControl;
@@ -19,6 +22,8 @@ export class LoginComponent implements OnInit {
               private fb: FormBuilder ) { }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.store.pipe(select(getAuth));
+this.isLoggedIn$.subscribe(val => console.log('val', val));
     this.loginForm = this.fb.group({
       username: ['', []],
       password: ['', []]
@@ -35,7 +40,7 @@ export class LoginComponent implements OnInit {
       // Dispatch logged in til store
       this.store.dispatch (new userActions.LogIn());
       // navigate til profilsiden
-      this.router.navigate(['user/profile']);
+      this.router.navigate(['/user', {outlets: {sub: ['profile']}}]);
     }
   }
 

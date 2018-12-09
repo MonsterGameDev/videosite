@@ -2,7 +2,7 @@
   <div class="page-content">
 
     <div class="page-body">
-      <div class="login ng-light">
+      <div class="login ng-light" *ngIf="!(isLoggedIn$ | async)">
         <form novalidate [formGroup]="loginForm" (ngSubmit)="save()">
           <div class="form-group">
             <label for="username">Username:</label>
@@ -15,6 +15,9 @@
           <button class="btn btn-primary" type="submit">Log ind</button>
         </form>
       </div>
+      
+      <h2 *ngIf="isLoggedIn$ | async">Du er allerede logget ind</h2>
+      
     </div>
   </div>
 </div>
