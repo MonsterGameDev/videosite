@@ -50,6 +50,7 @@ export class VideoDetailsComponent implements OnInit {
   deleteVideoCourse(id: number) {
     if (confirm('Er du sikker? \n  Du er ved for alvor at slette en post fra databasen')) {}
     this.store.dispatch(new videoActions.DeleteVideoCourse(id));
+    this.router.navigate(['/videos', {outlets: {sub: ['list']}}]);
   }
 }
 
