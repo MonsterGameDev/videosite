@@ -44,7 +44,7 @@ export class VideoDetailsComponent implements OnInit {
 
 
   editVideoCourse (id: number) {
-    throw fail('Not impemented');
+
   }
 
   deleteVideoCourse(id: number) {
