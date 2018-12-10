@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-home-text',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoHomeTextComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  seDemo() {
+    this.router.navigate(['/videos', {outlets: {sub: ['player']}}]);
+  }
 }

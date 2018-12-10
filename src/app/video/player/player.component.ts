@@ -22,7 +22,9 @@ export class PlayerComponent implements OnInit, OnDestroy {
   constructor(private store: Store<fromVideoCourses.AppState>) { }
 
   ngOnInit() {
-    const defaultVideoUrl = 'https://phng-euwe.streaming.media.azure.net/8ff29594-b3f8-4d32-ae00-1912f90ae6a1/20171001_155244.ism/manifest';
+    // tslint:disable-next-line:max-line-length
+    const defaultVideoUrl = 'https://phng-euwe.streaming.media.azure.net/fed61398-9e77-448a-9fa9-95923a90ff43/PræsentationAfAflevering.ism/manifest';
+    // 'https://phng-euwe.streaming.media.azure.net/8ff29594-b3f8-4d32-ae00-1912f90ae6a1/20171001_155244.ism/manifest';
     const playerOptions = {
       'nativeControlsForTouch': false,
       controls: true,
@@ -50,10 +52,11 @@ export class PlayerComponent implements OnInit, OnDestroy {
     this.store.pipe(select(fromVideoCourses.getCurrentVideoCourse), first()).subscribe(
       (data: Video) => {
          // console.log('selector sending:', data);
-        if (data) {
+        if (data.id !== 0) {
           this.readyPlayer(data.videoUrl, playerOptions);
           this.currentVideoCourse = data;
         } else {
+          console.log ('DEFAULT');
           this.readyPlayer(defaultVideoUrl, playerOptions);
         }
       }
