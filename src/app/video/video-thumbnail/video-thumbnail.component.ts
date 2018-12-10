@@ -27,8 +27,7 @@ export class VideoThumbnailComponent implements OnInit {
   }
 
   playVideo(id: number) {
-    console.log('moving to play');
-    this.store.dispatch(new videoCourseActions.SetCurrentVideoCourse(id));
+    this.store.dispatch(new videoCourseActions.SetCurrentVideoCourseId(id));
     this.router.navigate(['/videos', {outlets: {sub: ['player']}}]);
   }
 

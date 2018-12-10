@@ -14,6 +14,7 @@ import { CreateVideoCourseComponent } from './create-video-course/create-video-c
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VideoHomeTextComponent } from './video-home-text/video-home-text.component';
+import { VideoDetailsComponent } from './video-details/video-details.component';
 
 
 
@@ -24,13 +25,15 @@ import { VideoHomeTextComponent } from './video-home-text/video-home-text.compon
     VideolistComponent,
     VideoThumbnailComponent,
     CreateVideoCourseComponent,
-    VideoHomeTextComponent
+    VideoHomeTextComponent,
+    VideoDetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: 'player', component: PlayerComponent, outlet: 'sub' },
       { path: 'list', component: VideolistComponent, outlet: 'sub' },
+      { path: 'list/:id', component: VideoDetailsComponent, outlet: 'sub'},
       { path: 'create', component: CreateVideoCourseComponent, outlet: 'sub' },
       { path: 'wctext', component: VideoHomeTextComponent, outlet: 'sub' },
       { path: '', component: VideoHomeComponent },

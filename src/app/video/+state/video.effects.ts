@@ -30,4 +30,14 @@ export class VideoCourseEffectsService {
             )
         )
     );
+
+    @Effect()
+    deleteVideoCourse$ = this.actions$.pipe(
+        ofType(videoActions.VideoActionTypes.DeleteVideoCourse),
+        mergeMap( (action: videoActions.DeleteVideoCourse) => this.videoCourseService.deleteVideo(action.payload)
+        .pipe(
+            map(() => new videoActions.DeleteVideoCourseSuccess(action.payload),
+            catchError (err => of(new videoActions.DeleteVideoCourseFail(err))))
+        ))
+    );
 }

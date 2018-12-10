@@ -1,0 +1,29 @@
+<div class="page">
+    <div class="page-content">
+      
+      <div class="page-body container">
+        <div class="body-img-top">
+          <img [src]="currentVideoCourse?.posterUrl">
+          <br>
+          <div class="btn-group pb-5">
+            <button class="btn btn-primary" type="button" (click)="playVideoCourse()">Afspil video</button>
+            <button *ngIf="auth$ |async" class="btn btn-outline-light disabled" type="button" (click)="editVideoCourse()">Editer</button>
+            <button *ngIf="auth$ |async" class="btn btn-danger" type="button" (click)="deleteVideoCourse(currentVideoCourse?.id)">Delete</button>
+          </div>
+          <div class="top-image-layertext">
+            <h3>{{ currentVideoCourse?.title }}</h3>
+            <div class="byline">Af: {{ currentVideoCourse?.author }}</div>
+            <div class="short-description">{{ currentVideoCourse?.shortDescription }}</div>
+            <div class="duration">Varighed: {{ currentVideoCourse?.duration }}</div>
+            <div class="level">Level: {{ currentVideoCourse?.level }}</div>
+            <div class="longDescription">{{ currentVideoCourse?.longDescription }}</div>
+            
+          </div>
+        </div>  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  

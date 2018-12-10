@@ -1,28 +1,3 @@
-<!-- <p class="ng-light">
-  Name: {{ course.title  }}
-  <br>
-  shortDescription: {{ course.shortDescription  }}
-  <br>
-  longDescription: {{ course.longDescription  }}
-  <br>
-  duration: {{ course.duration  }}
-  <br>
-  author: {{ course.author  }}
-  <br>
-  level: {{ course.level  }}
-  <br>
-  githubUrl: {{ course.githubUrl  }}
-  <br>
-  posterUrl: {{ course.posterUrl  }}
-  <br>
-  videoUrl: {{ course.videoUrl  }}
-  <br>
-  datePublished: {{ course.datePublished  }}
-  <br>
-  tags: {{ course.tags  }}
-
-</p> -->
-
 <div class="card" style="position:relative; height: 100%; background-color: #222; color: #ccc; border: 1px solid #ccc">
     <div class="text-center btn-play"  (click)="playVideo(course?.id)">
       <fa-icon [icon]="faPlayCircle"></fa-icon>
@@ -39,11 +14,11 @@
         <fa-icon [icon]="faFileDownload" title="Download Material"></fa-icon>
       </a>
       <div>
-        <a [href]="course.githubUrl">
+        <a [href]="course.githubUrl" target="_blank">
           <img  widht="50" src="/assets/images/github.svg" title="Go to Github Repo" class="github">
         </a>
       </div>
-      <a [routerLink]="['/courses/', course?.id]">
+      <a [routerLink]="[course?.id]">
         <fa-icon [icon]="faInfoCircle" title="See Details"></fa-icon>
       </a>
     </div>

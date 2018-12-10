@@ -2,6 +2,8 @@
   <div class="page-content">
 
     <div class="page-body">
+      <h2>Login</h2>
+      <br><br>
       <div class="login ng-light" *ngIf="!(isLoggedIn$ | async)">
         <form novalidate [formGroup]="loginForm" (ngSubmit)="save()">
           <div class="form-group">

@@ -41,6 +41,10 @@ export class VideoService {
 
     deleteVideo(id: number): Observable<void> {
         const url = `${this.baseUrl}/videocourses/${id}`;
-        return this.http.delete<void>(url);
+        return this.http.delete<void>(url, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        });
     }
 }

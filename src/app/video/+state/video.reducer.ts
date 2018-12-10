@@ -15,7 +15,7 @@ export interface AppState extends fromRoot.AppState {
 
 const initialState = {
     videos: [],
-    selectedVideoId: null,
+    currentVideoCourseId: 0,
     error: ''
 };
 
@@ -33,6 +33,7 @@ export const getCurrentVideoCourseId = createSelector(
         return state.currentVideoCourseId;
     }
 );
+
 
 export const getCurrentVideoCourse = createSelector(
     getVideoCoursesFeatureState,
@@ -91,20 +92,32 @@ export function videoReducer (state = initialState, action: videoActions.VideoAc
                 ...state,
                 error: action.payload
             };
-        case videoActions.VideoActionTypes.SetCurrentVideoCourse:
+        case videoActions.VideoActionTypes.SetCurrentVideoCourseId:
             return {
                 ...state,
                 currentVideoCourseId: action.payload
             };
-        case videoActions.VideoActionTypes.ClearCurrentVideoCourse:
+        case videoActions.VideoActionTypes.ClearCurrentVideoCourseId:
             return {
                 ...state,
                 currentVideoCourseId: null
             };
-        case videoActions.VideoActionTypes.InitializeCurrentVideoCourse:
+        case videoActions.VideoActionTypes.InitializeCurrentVideoCourseId:
             return  {
                 ...state,
                 currentVideoCourseId: 0
+            };
+        case videoActions.VideoActionTypes.DeleteVideoSuccess:
+            return {
+                ...state,
+                people: state.videos.filter((v: Video) => v.id !== action.payload),
+                currentVideoCourseId: 0
+
+            };
+        case videoActions.VideoActionTypes.DeleteVideoFail:
+            return {
+                ...state,
+                error: action.payload
             };
         default:
             return state;

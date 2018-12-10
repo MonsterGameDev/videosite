@@ -8,9 +8,13 @@ export enum VideoActionTypes {
     CreateVideoCourse = '[Video Courses] Create Course',
     CreateVideoCourseSuccess = '[Video Courses] Create Course Success',
     CreateCourseFail = '[Video Courses] Create Course Failed',
-    SetCurrentVideoCourse = '[Video Courses] Set Current VideoCourse',
-    ClearCurrentVideoCourse = '[Video Courses] Clear Current VideoCourse',
-    InitializeCurrentVideoCourse = '[Video Courses] Initialize Current VideoCourse'
+    SetCurrentVideoCourseId = '[Video Courses] Set Current VideoCourse',
+    ClearCurrentVideoCourseId = '[Video Courses] Clear Current VideoCourse',
+    InitializeCurrentVideoCourseId = '[Video Courses] Initialize Current VideoCourse',
+    DeleteVideoCourse = '[Video Courses] Delete Current Video',
+    DeleteVideoSuccess = '[Video Courses] Delete Video Success',
+    DeleteVideoFail = '[Video Courses] Delete Video Fail'
+
 }
 
 export class LoadVideoCourses implements Action {
@@ -47,19 +51,37 @@ export class CreateVideoCourseFail implements Action {
     constructor(public payload: string) {}
 }
 
-export class SetCurrentVideoCourse implements Action {
-    readonly type = VideoActionTypes.SetCurrentVideoCourse;
+export class SetCurrentVideoCourseId implements Action {
+    readonly type = VideoActionTypes.SetCurrentVideoCourseId;
 
     constructor(public payload: number) {}
 }
 
-export class ClearCurrentVideoCourse implements Action {
-    readonly type = VideoActionTypes.ClearCurrentVideoCourse;
+export class ClearCurrentVideoCourseId implements Action {
+    readonly type = VideoActionTypes.ClearCurrentVideoCourseId;
 
 }
 
-export class InitializeCurrentVideoCourse implements Action {
-    readonly type = VideoActionTypes.InitializeCurrentVideoCourse;
+export class InitializeCurrentVideoCourseId implements Action {
+    readonly type = VideoActionTypes.InitializeCurrentVideoCourseId;
+}
+
+export class DeleteVideoCourse implements Action {
+    readonly type = VideoActionTypes.DeleteVideoCourse;
+
+    constructor(public payload: number) {}
+}
+
+export class DeleteVideoCourseSuccess implements Action {
+    readonly type = VideoActionTypes.DeleteVideoSuccess;
+
+    constructor (public payload: number) {}
+}
+
+export class DeleteVideoCourseFail implements Action {
+    readonly type = VideoActionTypes.DeleteVideoFail;
+
+    constructor (public payload: string) {}
 }
 
 export type VideoActions = LoadVideoCourses
@@ -68,6 +90,9 @@ export type VideoActions = LoadVideoCourses
     | CreateVideoCourse
     | CreateVideoCourseSuccess
     | CreateVideoCourseFail
-    | SetCurrentVideoCourse
-    | ClearCurrentVideoCourse
-    | InitializeCurrentVideoCourse;
+    | SetCurrentVideoCourseId
+    | ClearCurrentVideoCourseId
+    | InitializeCurrentVideoCourseId
+    | DeleteVideoCourse
+    | DeleteVideoCourseSuccess
+    | DeleteVideoCourseFail;
